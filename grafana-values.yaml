@@ -213,7 +213,7 @@ extraContainerVolumes: []
 persistence:
   type: pvc
   enabled: false
-   storageClassName: "prometheus"
+  storageClassName: "prometheus"
   accessModes:
     - ReadWriteOnce
   size: 10Gi
