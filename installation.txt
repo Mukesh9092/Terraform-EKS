@@ -1,0 +1,35 @@
+wget -q https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+yum install unzip -y
+unzip -o terraform_0.12.9_linux_amd64.zip -d /usr/local/bin
+rm terraform_0.12.9_linux_amd64.zip
+terraform -version
+
+Git
+================
+yum install git -y
+git clone https://github.com/maheshkharwadkar/terraform-course.git
+
+---------------Docker Installation---------------------------
+
+apt-get update -y
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+
+curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose''
+
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose -v
+
+===================================================================
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin
+wget https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.3.0/heptio-authenticator-aws_0.3.0_linux_amd64
+chmod +x heptio-authenticator-aws_0.3.0_linux_amd64
+sudo mv heptio-authenticator-aws_0.3.0_linux_amd64 /usr/local/bin/heptio-authenticator-aws
+
+
