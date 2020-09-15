@@ -26,8 +26,8 @@ resource "aws_launch_configuration" "demo" {
   associate_public_ip_address = true
   iam_instance_profile = "${aws_iam_instance_profile.demo-node.name}"   #changed
   image_id = "${data.aws_ami.eks-worker.id}"   #changed
-  instance_type = "t2.medium"
-  name_prefix = "terraform-eks-demo"
+  instance_type = "m4.large"
+  name_prefix = "eks-demo"
   security_groups = ["${aws_security_group.demo-node.id}"]        #changed
   user_data_base64 = "${base64encode(local.demo-node-userdata)}" #changed
 
@@ -41,7 +41,7 @@ resource "aws_autoscaling_group" "demo" {
   launch_configuration = aws_launch_configuration.demo.id
   max_size = 2
   min_size = 2
-  name = "terraform-eks-demo"
+  name = "eks-demo"
   # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
   # force an interpolation expression to be interpreted as a list by wrapping it
   # in an extra set of list brackets. That form was supported for compatibilty in
@@ -54,7 +54,7 @@ resource "aws_autoscaling_group" "demo" {
 
   tag {
     key = "Name"
-    value = "terraform-eks-demo"
+    value = "eks-demo"
     propagate_at_launch = true
   }
 
