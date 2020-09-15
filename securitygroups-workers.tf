@@ -1,6 +1,6 @@
 # workers
 resource "aws_security_group" "demo-node" {
-  name        = "terraform-eks-demo-node"
+  name        = "eks-demo-node"
   description = "Security group for all nodes in the cluster"
   vpc_id      = module.vpc.vpc_id
 
@@ -12,7 +12,7 @@ resource "aws_security_group" "demo-node" {
   }
 
   tags = {
-    "Name"                                      = "terraform-eks-demo-node"
+    "Name"                                      = "eks-demo-node"
     "kubernetes.io/cluster/${var.cluster-name}" = "owned"
   }
 }
