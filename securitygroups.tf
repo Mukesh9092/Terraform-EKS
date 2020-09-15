@@ -1,5 +1,5 @@
 resource "aws_security_group" "demo-cluster" {
-  name        = "terraform-eks-demo-cluster"
+  name        = "eks-demo-cluster"
   description = "Cluster communication with worker nodes"
   vpc_id      = module.vpc.vpc_id
 
@@ -11,7 +11,7 @@ resource "aws_security_group" "demo-cluster" {
   }
 
   tags = {
-    Name = "terraform-eks-demo"
+    Name = "eks-demo"
   }
 }
 
